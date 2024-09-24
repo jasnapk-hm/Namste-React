@@ -1,0 +1,53 @@
+.logo {
+  width: 130px;
+  height: 130px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 2px solid;
+}
+
+.nav-items {
+  padding: 0px 10px;
+}
+
+.nav-items > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-items > ul > li {
+  list-style-type: none;
+  padding: 30px;
+  font-size: 24px;
+}
+
+
+.card:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}
+.card {
+  width: 200px;
+  padding: 2px;
+  margin: 10px;
+  background-color: beige;
+}
+
+.res-image {
+
+    width: 150px;
+    height: 150px;
+}
+
+.serach{
+    padding: 30px;
+}
+.restra-container{
+display: flex;
+flex-wrap: wrap;
+
+}
