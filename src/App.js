@@ -9,10 +9,6 @@ import Header from "./componenets/Header";
 
 import Body from "./componenets/Body";
 
-
-
-
-
 const AppLayout = () => {
   return (
     <div>

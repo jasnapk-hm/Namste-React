@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "App.js",
+  "proxy": "https://www.swiggy.com",
+
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
@@ -26,4 +28,5 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
+  
 }
