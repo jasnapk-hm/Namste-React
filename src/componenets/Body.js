@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import RestraCard from "./RestrarantCard";
 import ShimmerCard from "./Shimmer";
-
+import { Link } from "react-router-dom";
 const Body = () => {
   const [listOfRestrarants, setListOfRestrarants] = useState([]);
   const [serachtext, setSearchText] = useState("");
@@ -75,7 +75,12 @@ const Body = () => {
       </div>
       <div className="restra-container">
         {filteredRestrarants.map((resturants) => (
-          <RestraCard key={resturants.info.id} resData={resturants} />
+          <Link
+            key={resturants.info.id}
+            to={"/restaurant/" + resturants?.info?.id}
+          >
+            <RestraCard resData={resturants} />
+          </Link>
         ))}
       </div>
     </div>
