@@ -2,35 +2,14 @@ import { useEffect, useState } from "react";
 import ShimmerCard from "./Shimmer";
 import { proxyUrl, targetUrl } from "../utils/common";
 import { useParams } from "react-router-dom";
+import useResturantMenu from "../utils/useResturantMenu";
 const ResturantMenu = () => {
-  const [menu, setMenu] = useState(null);
+  // const [menu, setMenu] = useState(null);
   const { id } = useParams();
   console.log("resID", id);
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  const menu = useResturantMenu(id)
 
-  const fetchMenu = async () => {
-    try {
-      // const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-      // const targetUrl =
-      //   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.96340&lng=77.58550&restaurantId=822315&catalog_qa=undefined&submitAction=ENTER";
 
-      const response = await fetch(proxyUrl + targetUrl + id);
-      const data = await response.json();
-      console.log("data", data);
-      setMenu(data);
-      const recommendedItems =
-        data?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]
-          ?.card?.card?.itemCards[0].card.info;
-      console.log(recommendedItems);
-    } catch (error) {
-      console.error("Error fetching menu data:", error);
-    }
-  };
-
-  // data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info
-  // const { name, cuisines, costForTwoMessage } =   menu?.data?.cards[2]?.card?.card?.info
   const data = menu?.data?.cards[2]?.card?.card?.info;
 
   const menuList =

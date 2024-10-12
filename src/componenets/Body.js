@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 import RestraCard from "./RestrarantCard";
 import ShimmerCard from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
+
 const Body = () => {
   const [listOfRestrarants, setListOfRestrarants] = useState([]);
   const [serachtext, setSearchText] = useState("");
   const [filteredRestrarants, setFilteredRestrarants] = useState([]);
+  console.log(useState(), "usestate");
+const status= useOnlineStatus()
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,9 +33,12 @@ const Body = () => {
     setFilteredRestrarants(
       data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-  };
+  };  
 
   console.log("list", listOfRestrarants);
+  if (status === false) {
+  return  <h1>Please  check your network.........!!!!!!!! 🔥</h1>
+  }
 
   return listOfRestrarants.length === 0 ? (
     <ShimmerCard />
