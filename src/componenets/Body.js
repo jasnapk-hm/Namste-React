@@ -8,7 +8,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   const [listOfRestrarants, setListOfRestrarants] = useState([]);
   const [serachtext, setSearchText] = useState("");
-  const [filteredRestrarants, setFilteredRestrarants] = useState([]);
+  const [filteredRestrarant, setFilteredRestrarants] = useState([]);
   console.log(useState(), "usestate");
 const status= useOnlineStatus()
   useEffect(() => {
@@ -60,6 +60,7 @@ const status= useOnlineStatus()
                   .toLowerCase()
                   .includes(serachtext.toLocaleLowerCase());
               });
+             
               setFilteredRestrarants(filteredRestrarants);
             }}
           >
@@ -70,19 +71,19 @@ const status= useOnlineStatus()
           className="fltr-btn"
           onClick={() => {
             console.log("clicked");
-            const filteredRestrarants = listOfRestrarants.filter((res) => {
+            const filteredRestrarant = listOfRestrarants.filter((res) => {
               console.log(res?.info?.avgRatingString);
               return res?.info?.avgRatingString > 4.5;
             });
-            console.log("filterrrs", filteredRestrarants);
-            setListOfRestrarants(filteredRestrarants);
+            console.log("filterrrs", filteredRestrarant);
+            setListOfRestrarants(filteredRestrarant);
           }}
         >
           Top Rated Restrarants
         </button>{" "}
       </div>
       <div className="restra-container">
-        {filteredRestrarants.map((resturants) => (
+        {filteredRestrarant.map((resturants) => (
           <Link
             key={resturants.info.id}
             to={"/restaurant/" + resturants?.info?.id}

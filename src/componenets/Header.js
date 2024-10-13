@@ -9,13 +9,13 @@ const Header = () => {
 
 
   return (
-    <div className="header">
+    <div className="flex justify-between">
       <div className="logo-container">
         {" "}
-        <img className="logo" src={LOGO_URL}></img>
+        <img className="w-100 h-40" src={LOGO_URL}></img>
       </div>
       <div className="nav-items">
-        <ul>
+        <ul className="flex">
           <li>Online:{status ? "💚 ": "💔 "}   </li>
           <li>  <Link to="/">Home</Link></li>
           <li>
