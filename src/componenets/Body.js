@@ -43,17 +43,17 @@ const status= useOnlineStatus()
   return listOfRestrarants.length === 0 ? (
     <ShimmerCard />
   ) : (
-    <div className="body">
-      <div className="Filter">
+    <div className="m-4 p-4">
+      <div className="Filter flex">
         <div>
           <input
             type="text"
-            className="search-btn"
+            className="border border-solid border-black"
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>{" "}
-          <button
+          <button className="bg-green-200 p-2 rounded-lg"
             onClick={() => {
               const filteredRestrarants = listOfRestrarants.filter((res) => {
                 return res?.info?.name

@@ -9,22 +9,22 @@ const Header = () => {
 
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between  bg-pink-200 m-2">
       <div className="logo-container">
         {" "}
         <img className="w-100 h-40" src={LOGO_URL}></img>
       </div>
-      <div className="nav-items">
-        <ul className="flex">
-          <li>Online:{status ? "💚 ": "💔 "}   </li>
-          <li>  <Link to="/">Home</Link></li>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex p-10  m-4 ">
+          <li className="px-4">Online:{status ? "💚 ": "💔 "}   </li>
+          <li className="px-4">  <Link to="/">Home</Link></li>
+          <li className="px-4">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-4">Cart</li>
           <button
             className="login-btn"
             onClick={() => {
