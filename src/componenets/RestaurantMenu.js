@@ -9,7 +9,7 @@ const ResturantMenu = () => {
   console.log("resID", id);
   const menu = useResturantMenu(id)
 
-
+console.log("menu",menu);
   const data = menu?.data?.cards[2]?.card?.card?.info;
 
   const menuList =
@@ -25,11 +25,11 @@ const ResturantMenu = () => {
     <ShimmerCard />
   ) : (
     <>
-      <h1>{data?.name}</h1>
-      <h2>{data?.cuisines.join(",")}</h2>
-      <h3>{data?.costForTwoMessage}</h3>
-      <h2>Menu</h2>
-      <ul>
+      <h1 className="font-bold">{data?.name}</h1>
+      <h2 className="font-serif">{data?.cuisines.join(",")}</h2>
+      <h3 className="text-red-500">{data?.costForTwoMessage}</h3>
+      <h2 className="font-bold text-purple-700 underline-offset-4">Menu</h2>
+      <ul className="text-green-800">
         {menuList.length > 0 ? (
           menuList.map((item, index) => (
             <li key={index}>

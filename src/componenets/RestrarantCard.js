@@ -8,14 +8,14 @@ const RestraCard = (props) => {
     resData?.info;
 
   return (
-    <div className="card">
+    <div className=" m-4 p-4 w-[250px] rounded-lg h-[450px] overflow-auto overflow-hidden bg-slate-300">
       <img
         alt="res"
-        className="res-image"
+        className="w-30 rounded-lg"
         src={CDN_URL + cloudinaryImageId}
       ></img>
-      <h3>{name}</h3>
-      <h4>{cuisines.join(",")}</h4>
+      <h3 className="font-bold py-2">{name}</h3>
+      <h4 className="flex overflow-hidden">{cuisines.join(",")}</h4>
       <h4>{avgRating}</h4>
       <h4>{costForTwo} </h4>
       <h4>{sla.deliveryTime} minutes</h4>

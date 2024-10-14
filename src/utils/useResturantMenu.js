@@ -1,6 +1,6 @@
 
-import { proxyUrl, targetUrl } from "../utils/common";
-
+import { proxyUrl, targetUrl ,} from "../utils/common";
+import { useState,useEffect } from "react";
 const useResturantMenu =(id)=>{
     const [menu, setMenu] = useState(null);
 

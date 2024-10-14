@@ -40,7 +40,7 @@ const status= useOnlineStatus()
   return  <h1>Please  check your network.........!!!!!!!! 🔥</h1>
   }
 
-  return listOfRestrarants.length === 0 ? (
+  return listOfRestrarants?.length === 0 ? (
     <ShimmerCard />
   ) : (
     <div className="m-4 p-4">
@@ -53,7 +53,7 @@ const status= useOnlineStatus()
               setSearchText(e.target.value);
             }}
           ></input>{" "}
-          <button className="bg-green-200 p-2 rounded-lg"
+          <button className="bg-green-200 px-4 py-4 m-2 rounded-lg"
             onClick={() => {
               const filteredRestrarants = listOfRestrarants.filter((res) => {
                 return res?.info?.name
@@ -68,7 +68,7 @@ const status= useOnlineStatus()
           </button>
         </div>
         <button
-          className="fltr-btn"
+          className="bg-slate-200  px-4 py-4 m-2 rounded-lg"
           onClick={() => {
             console.log("clicked");
             const filteredRestrarant = listOfRestrarants.filter((res) => {
@@ -82,7 +82,7 @@ const status= useOnlineStatus()
           Top Rated Restrarants
         </button>{" "}
       </div>
-      <div className="restra-container">
+      <div className="restra-container flex  flex-wrap hover:" >
         {filteredRestrarant.map((resturants) => (
           <Link
             key={resturants.info.id}
