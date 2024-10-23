@@ -2,7 +2,7 @@ import React from "react";
 import { CDN_URL } from "../utils/common";
 
 export default function AccordianBody({ items }) {
-  console.log("items", items);
+//   console.log("items", items);
   return (
     <div>
       {items.map((item) => (

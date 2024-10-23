@@ -33,7 +33,7 @@ const ResturantMenu = () => {
 
   console.log("categories", categories);
 
-  return menu == null ? (
+  return ((menu === null) ? (
     <ShimmerCard />
   ) : (
     <div className="text-center">
@@ -41,7 +41,7 @@ const ResturantMenu = () => {
       <h2 className="font-serif">{data?.cuisines.join(",")}</h2>
       <h3 className="text-red-500">{data?.costForTwoMessage}</h3>
       {/* controlled componenet */}
-      {categories.map((categories, index) => (
+      {categories?.map((categories, index) => (
         <RestaurantCategory
           data={categories}
           showItem={index === showIndex ? true : false}
@@ -63,7 +63,7 @@ const ResturantMenu = () => {
         )}
       </ul> */}
     </div>
-  );
+  ));
 };
 
 export default ResturantMenu;

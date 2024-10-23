@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import RestraCard,{withPromotedLabel} from "./RestrarantCard";
+import RestraCard, { withPromotedLabel } from "./RestrarantCard";
 import ShimmerCard from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
 
 const Body = () => {
   const [listOfRestrarants, setListOfRestrarants] = useState([]);
   const [serachtext, setSearchText] = useState("");
   const [filteredRestrarant, setFilteredRestrarants] = useState([]);
   console.log(useState(), "usestate");
-  const RestaurantCardPromoted =withPromotedLabel(RestraCard);
-const status= useOnlineStatus()
+  const RestaurantCardPromoted = withPromotedLabel(RestraCard);
+  const status = useOnlineStatus();
   useEffect(() => {
     fetchData();
   }, []);
@@ -34,11 +33,11 @@ const status= useOnlineStatus()
     setFilteredRestrarants(
       data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-  };  
+  };
 
-  console.log("list", listOfRestrarants);
+  console.log("list", listOfRestrarants.length);
   if (status === false) {
-  return  <h1>Please  check your network.........!!!!!!!! 🔥</h1>
+    return <h1>Please check your network.........!!!!!!!! 🔥</h1>;
   }
 
   return listOfRestrarants?.length === 0 ? (
@@ -54,14 +53,15 @@ const status= useOnlineStatus()
               setSearchText(e.target.value);
             }}
           ></input>{" "}
-          <button className="bg-green-200 px-4 py-4 m-2 rounded-lg"
+          <button
+            className="bg-green-200 px-4 py-4 m-2 rounded-lg"
             onClick={() => {
               const filteredRestrarants = listOfRestrarants.filter((res) => {
                 return res?.info?.name
                   .toLowerCase()
                   .includes(serachtext.toLocaleLowerCase());
               });
-             
+
               setFilteredRestrarants(filteredRestrarants);
             }}
           >
@@ -72,26 +72,28 @@ const status= useOnlineStatus()
           className="bg-slate-200  px-4 py-4 m-2 rounded-lg"
           onClick={() => {
             console.log("clicked");
-            const filteredRestrarant = listOfRestrarants.filter((res) => {
+            const Restrarant = listOfRestrarants.filter((res) => {
               console.log(res?.info?.avgRatingString);
               return res?.info?.avgRatingString > 4.5;
             });
-            console.log("filterrrs", filteredRestrarant);
-            setListOfRestrarants(filteredRestrarant);
+            console.log("filterrrs", Restrarant);
+            setListOfRestrarants(Restrarant);
           }}
         >
           Top Rated Restrarants
         </button>{" "}
       </div>
-      <div className="restra-container flex  flex-wrap hover:" >
+      <div className="restra-container flex  flex-wrap hover:">
         {filteredRestrarant.map((resturants) => (
           <Link
             key={resturants.info.id}
             to={"/restaurant/" + resturants?.info?.id}
           >
-
-            {resturants?.info?.aggregatedDiscountInfoV3?.header  ? <RestaurantCardPromoted resData={resturants} /> : <RestraCard resData={resturants} />}
-            
+            {resturants?.info?.aggregatedDiscountInfoV3?.header ? (
+              <RestaurantCardPromoted resData={resturants} />
+            ) : (
+              <RestraCard resData={resturants} />
+            )}
           </Link>
         ))}
       </div>
