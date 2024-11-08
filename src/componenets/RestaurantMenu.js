@@ -17,7 +17,7 @@ const ResturantMenu = () => {
   const menuList =
     menu?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
       ?.card?.itemCards;
-  console.log("name", menu?.data?.cards[2]?.card?.card?.info);
+  console.log("name", menu?.data?.cards?.[2]?.card?.card?.info);
   console.log(
     "menulists",
     menu?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card

@@ -1,8 +1,14 @@
 import React from "react";
 import { CDN_URL } from "../utils/common";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 export default function AccordianBody({ items }) {
 //   console.log("items", items);
+const dispatch=useDispatch();
+const handleClick =(item)=>{
+dispatch(addItem(item))
+}
   return (
     <div>
       {items.map((item) => (
@@ -23,7 +29,7 @@ export default function AccordianBody({ items }) {
           </div>
           <div className="w-3/12 ">
             <div className="absolute mx-10 ">
-              <button className="bg-black text-white border-2 rounded-lg p-2 shadow-lg">
+              <button className="bg-black text-white border-2 rounded-lg p-2 shadow-lg" onClick={()=>handleClick(item)}>
                 Add +
               </button>
             </div>

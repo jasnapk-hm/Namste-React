@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import RestraCard, { withPromotedLabel } from "./RestrarantCard";
 import ShimmerCard from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   const [listOfRestrarants, setListOfRestrarants] = useState([]);
@@ -14,7 +15,7 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  const { loggeduser, setUsername } = useContext(userContext);
   const fetchData = async () => {
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     const targetUrl =
@@ -44,7 +45,7 @@ const Body = () => {
     <ShimmerCard />
   ) : (
     <div className="m-4 p-4">
-      <div className="Filter flex">
+      <div className="Filter flex my-3 mb-7">
         <div>
           <input
             type="text"
@@ -82,6 +83,15 @@ const Body = () => {
         >
           Top Rated Restrarants
         </button>{" "}
+        <div>
+          <label>username</label>
+          <input
+            type="text"
+            className="p-2 border border-black "
+            value={loggeduser}
+            onChange={(e) => setUsername(e.target.value)}
+          ></input>
+        </div>
       </div>
       <div className="restra-container flex  flex-wrap hover:">
         {filteredRestrarant.map((resturants) => (

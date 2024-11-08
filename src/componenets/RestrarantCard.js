@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/common";
+import userContext from "../utils/userContext";
 
 const RestraCard = (props) => {
   console.log("props", props);
@@ -13,6 +15,7 @@ const RestraCard = (props) => {
     cloudinaryImageId,
     aggregatedDiscountInfoV3,
   } = resData?.info;
+  const {loggeduser}= useContext(userContext)
 
   console.log("props", aggregatedDiscountInfoV3);
 console.log();
@@ -28,6 +31,7 @@ console.log();
       <h4>{avgRating}</h4>
       <h4>{costForTwo} </h4>
       <h4>{sla.deliveryTime} minutes</h4>
+      <h4>user :{loggeduser}</h4>
     </div>
   );
 };
